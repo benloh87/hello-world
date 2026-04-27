@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World 🌈</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Fredoka:wght@600&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Bungee Shade", "Fredoka", system-ui, sans-serif;
+      background: linear-gradient(180deg, #87ceeb 0%, #b0e0ff 60%, #c8f0a0 100%);
+      position: relative;
+    }
+
+    /* Sun */
+    .sun {
+      position: absolute;
+      top: 8%;
+      right: 10%;
+      width: 140px;
+      height: 140px;
+      background: radial-gradient(circle, #fff176 0%, #ffd54f 60%, #ffb300 100%);
+      border-radius: 50%;
+      box-shadow: 0 0 80px 20px rgba(255, 213, 79, 0.7);
+      animation: pulse 3s ease-in-out infinite;
+    }
+    .sun::before {
+      content: "";
+      position: absolute;
+      inset: -40px;
+      border-radius: 50%;
+      background: conic-gradient(
+        rgba(255, 213, 79, 0.5) 0deg, transparent 15deg,
+        rgba(255, 213, 79, 0.5) 30deg, transparent 45deg,
+        rgba(255, 213, 79, 0.5) 60deg, transparent 75deg,
+        rgba(255, 213, 79, 0.5) 90deg, transparent 105deg,
+        rgba(255, 213, 79, 0.5) 120deg, transparent 135deg,
+        rgba(255, 213, 79, 0.5) 150deg, transparent 165deg,
+        rgba(255, 213, 79, 0.5) 180deg, transparent 195deg,
+        rgba(255, 213, 79, 0.5) 210deg, transparent 225deg,
+        rgba(255, 213, 79, 0.5) 240deg, transparent 255deg,
+        rgba(255, 213, 79, 0.5) 270deg, transparent 285deg,
+        rgba(255, 213, 79, 0.5) 300deg, transparent 315deg,
+        rgba(255, 213, 79, 0.5) 330deg, transparent 345deg
+      );
+      mask: radial-gradient(circle, transparent 60%, black 62%);
+      -webkit-mask: radial-gradient(circle, transparent 60%, black 62%);
+      animation: spin 20s linear infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Rainbow arc */
+    .rainbow {
+      position: absolute;
+      bottom: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle,
+          transparent 0%, transparent 38%,
+          #8b3fc7 38%, #8b3fc7 42%,
+          #4a90e2 42%, #4a90e2 46%,
+          #50c878 46%, #50c878 50%,
+          #ffeb3b 50%, #ffeb3b 54%,
+          #ff9800 54%, #ff9800 58%,
+          #ff3d3d 58%, #ff3d3d 62%,
+          transparent 62%);
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    /* Clouds */
+    .cloud {
+      position: absolute;
+      background: white;
+      border-radius: 100px;
+      opacity: 0.9;
+      box-shadow:
+        25px -15px 0 -5px white,
+        55px 0 0 -10px white,
+        -25px -10px 0 -8px white;
+    }
+    .cloud-1 { top: 15%; left: 10%; width: 80px; height: 30px; animation: drift 25s linear infinite; }
+    .cloud-2 { top: 28%; left: 70%; width: 60px; height: 22px; animation: drift 35s linear infinite reverse; }
+    .cloud-3 { top: 6%; left: 40%; width: 100px; height: 35px; animation: drift 30s linear infinite; }
+    @keyframes drift {
+      from { transform: translateX(-100px); }
+      to { transform: translateX(calc(100vw + 100px)); }
+    }
+
+    /* Rainbow Text */
+    h1 {
+      font-family: "Bungee Shade", cursive;
+      font-size: 13vw;
+      margin: 0;
+      letter-spacing: 0.02em;
+      text-align: center;
+      position: relative;
+      z-index: 10;
+      animation: bounce 2s ease-in-out infinite;
+    }
+    h1 span {
+      display: inline-block;
+      animation: wiggle 3s ease-in-out infinite;
+      -webkit-text-stroke: 3px #1a1a1a;
+      text-shadow:
+        4px 4px 0 #1a1a1a,
+        6px 6px 0 rgba(0, 0, 0, 0.25);
+      paint-order: stroke fill;
+    }
+    h1 span:nth-child(1)  { color: #e60000; animation-delay: 0.0s; }
+    h1 span:nth-child(2)  { color: #ff6f00; animation-delay: 0.1s; }
+    h1 span:nth-child(3)  { color: #ffd600; animation-delay: 0.2s; }
+    h1 span:nth-child(4)  { color: #00b341; animation-delay: 0.3s; }
+    h1 span:nth-child(5)  { color: #1565c0; animation-delay: 0.4s; }
+    h1 span:nth-child(6)  { color: #e60000; animation-delay: 0.5s; }
+    h1 span:nth-child(7)  { color: #ff6f00; animation-delay: 0.6s; }
+    h1 span:nth-child(8)  { color: #ffd600; animation-delay: 0.7s; }
+    h1 span:nth-child(9)  { color: #00b341; animation-delay: 0.8s; }
+    h1 span:nth-child(10) { color: #1565c0; animation-delay: 0.9s; }
+    h1 span:nth-child(11) { color: #6a1b9a; animation-delay: 1.0s; }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-3deg); }
+      50% { transform: rotate(3deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="sun"></div>
+  <div class="cloud cloud-1"></div>
+  <div class="cloud cloud-2"></div>
+  <div class="cloud cloud-3"></div>
+  <div class="rainbow"></div>
+
+  <h1>
+    <span>H</span><span>e</span><span>l</span><span>l</span><span>o</span>
+    <span>&nbsp;</span>
+    <span>W</span><span>o</span><span>r</span><span>l</span><span>d</span>
+  </h1>
+</body>
+</html>
